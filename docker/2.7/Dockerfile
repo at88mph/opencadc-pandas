@@ -1,3 +1,8 @@
 FROM opencadc/astropy:2.7-alpine
 
-RUN pip --no-cache-dir install pandas
+RUN apk --no-cache add g++
+
+RUN pip --no-cache-dir install cython \
+    && pip --no-cache-dir install pandas
+
+RUN apk --no-cache del g++
