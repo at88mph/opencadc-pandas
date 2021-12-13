@@ -22,6 +22,7 @@ docker-build-2.7:
       echo "Running on default branch '$CI_DEFAULT_BRANCH': tag = '${tag}'"
     - docker build --pull -t "$CI_REGISTRY_IMAGE:${tag}" --network host -f docker/${python_version}/slim/Dockerfile docker/${python_version}/slim/
     - docker push "$CI_REGISTRY_IMAGE:${tag}"
+    - docker rmi "$CI_REGISTRY_IMAGE:${tag}"
 
 docker-build-3.6:
   stage: build
@@ -33,6 +34,7 @@ docker-build-3.6:
       echo "Running on default branch '$CI_DEFAULT_BRANCH': tag = '${tag}'"
     - docker build --pull -t "$CI_REGISTRY_IMAGE:${tag}" --network host -f docker/${python_version}/slim/Dockerfile docker/${python_version}/slim/
     - docker push "$CI_REGISTRY_IMAGE:${tag}"
+    - docker rmi "$CI_REGISTRY_IMAGE:${tag}"
 
 docker-build-3.7:
   stage: build
@@ -44,6 +46,7 @@ docker-build-3.7:
       echo "Running on default branch '$CI_DEFAULT_BRANCH': tag = '${tag}'"
     - docker build --pull -t "$CI_REGISTRY_IMAGE:${tag}" --network host -f docker/${python_version}/slim/Dockerfile docker/${python_version}/slim/
     - docker push "$CI_REGISTRY_IMAGE:${tag}"
+    - docker rmi "$CI_REGISTRY_IMAGE:${tag}"
 
 docker-build-3.8:
   stage: build
@@ -55,6 +58,7 @@ docker-build-3.8:
       echo "Running on default branch '$CI_DEFAULT_BRANCH': tag = '${tag}'"
     - docker build --pull -t "$CI_REGISTRY_IMAGE:${tag}" --network host -f docker/${python_version}/slim/Dockerfile docker/${python_version}/slim/
     - docker push "$CI_REGISTRY_IMAGE:${tag}"
+    - docker rmi "$CI_REGISTRY_IMAGE:${tag}"
 
 docker-build-3.9:
   stage: build
@@ -66,6 +70,7 @@ docker-build-3.9:
       echo "Running on default branch '$CI_DEFAULT_BRANCH': tag = '${tag}'"
     - docker build --pull -t "$CI_REGISTRY_IMAGE:${tag}" --network host -f docker/${python_version}/slim/Dockerfile docker/${python_version}/slim/
     - docker push "$CI_REGISTRY_IMAGE:${tag}"
+    - docker rmi "$CI_REGISTRY_IMAGE:${tag}"
   # Run this job in a branch where a Dockerfile exists
   # rules:
   #   - if: $CI_COMMIT_BRANCH
