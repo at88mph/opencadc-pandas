@@ -9,21 +9,6 @@ before_script:
 # # Build a Docker image with CI/CD and push to the GitLab registry.
 # # Docker-in-Docker documentation: https://docs.gitlab.com/ee/ci/docker/using_docker_build.html
 # #
-docker-build-2.7:
-  stage: build
-  # Default branch leaves tag empty (= '$version-slim' tag)
-  script:
-    - |
-      python_version="2.7"
-      echo "********"
-      echo "WARNING: Building for an unsupported Python version (${python_version})"
-      echo "********"
-      tag="${python_version}-slim"
-      echo "Running on default branch '$CI_DEFAULT_BRANCH': tag = '${tag}'"
-    - docker build --pull -t "$CI_REGISTRY_IMAGE:${tag}" --network host -f docker/${python_version}/slim/Dockerfile docker/${python_version}/slim/
-    - docker push "$CI_REGISTRY_IMAGE:${tag}"
-    - docker rmi "$CI_REGISTRY_IMAGE:${tag}"
-
 docker-build-3.6:
   stage: build
   # Default branch leaves tag empty (= '$version-slim' tag)
@@ -66,6 +51,18 @@ docker-build-3.9:
   script:
     - |
       python_version="3.9"
+      tag="${python_version}-slim"
+      echo "Running on default branch '$CI_DEFAULT_BRANCH': tag = '${tag}'"
+    - docker build --pull -t "$CI_REGISTRY_IMAGE:${tag}" --network host -f docker/${python_version}/slim/Dockerfile docker/${python_version}/slim/
+    - docker push "$CI_REGISTRY_IMAGE:${tag}"
+    - docker rmi "$CI_REGISTRY_IMAGE:${tag}"
+
+docker-build-3.10:
+  stage: build
+  # Default branch leaves tag empty (= '$version-slim' tag)
+  script:
+    - |
+      python_version="3.10"
       tag="${python_version}-slim"
       echo "Running on default branch '$CI_DEFAULT_BRANCH': tag = '${tag}'"
     - docker build --pull -t "$CI_REGISTRY_IMAGE:${tag}" --network host -f docker/${python_version}/slim/Dockerfile docker/${python_version}/slim/
