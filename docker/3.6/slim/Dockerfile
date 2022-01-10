@@ -1,4 +1,4 @@
-FROM opencadc/astropy:3.6-slim
+FROM opencadc/astropy-4:3.6-slim
 
 RUN apt-get update \
     && apt-get install -y g++
