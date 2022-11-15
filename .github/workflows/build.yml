@@ -1,0 +1,37 @@
+name: OpenCADC Pandas Docker CI
+
+on:
+  pull_request:
+  push:
+  release:
+
+jobs:
+  #
+  # Package jobs
+  #
+  package-3_9:
+    uses: ./.github/workflows/docker.yml
+    secrets: inherit
+    with:
+      name: pandas
+      version: '3.9'
+      flavour: slim
+
+  package-3_10:
+    uses: ./.github/workflows/docker.yml
+    secrets: inherit
+    with:
+      name: pandas
+      version: '3.10'
+      flavour: slim
+
+  package-3_11:
+    uses: ./.github/workflows/docker.yml
+    secrets: inherit
+    with:
+      name: pandas
+      version: '3.11'
+      flavour: slim
+#
+# End Package Jobs
+#
