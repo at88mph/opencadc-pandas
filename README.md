@@ -1,4 +1,4 @@
-# opencadc-matplotlib
+# opencadc-pandas
 Pandas (https://pandas.pydata.org) on Debian Bullseye Slim with AstroPy
 This image also includes `cython`.
 
