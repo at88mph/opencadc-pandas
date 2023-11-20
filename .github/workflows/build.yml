@@ -32,6 +32,14 @@ jobs:
       name: pandas
       version: '3.11'
       flavour: slim
+
+  package-3_12:
+    uses: ./.github/workflows/docker.yml
+    secrets: inherit
+    with:
+      name: pandas
+      version: '3.12'
+      flavour: slim
 #
 # End Package Jobs
 #
