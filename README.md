@@ -8,6 +8,7 @@ This image also includes `cython`.
 Supports these Python versions from the official
 Python Docker images:
 
-  - 3.11 (AstroPy 5)
-  - 3.10 (AstroPy 5)
-  - 3.9 (AstroPy 4)
+- 3.12 (AstroPy 5)
+- 3.11 (AstroPy 5)
+- 3.10 (AstroPy 5)
+- 3.9 (AstroPy 4)
